@@ -26,9 +26,8 @@ class ProductionGraphicsService:
         "Colombia": "^",   
     }
 
-    def __init__(self, statistics_service: ProductionStatisticsService = None, collection: ProductionCollection = None):
+    def __init__(self, statistics_service: ProductionStatisticsService = None):
         self.service = statistics_service or ProductionStatisticsService()
-        self.collection = collection
         os.makedirs(self.CHARTS_DIR, exist_ok=True)
 
    
