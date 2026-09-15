@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import matplotlib
-matplotlib.use("Agg")   # ⬅️ ANTES de pyplot: permite guardar PNG sin pantalla (Docker/WSL)
+matplotlib.use("Agg") 
 from matplotlib import pyplot as plt
 
 from services.ProductionStatisticsService import ProductionStatisticsService
@@ -222,10 +222,10 @@ class ProductionGraphicsService:
         data = [self.service.getCleanProductionAmountsByVariedad(v) for v in variedades]
 
         fig, ax = plt.subplots(figsize=(10, 6))
-        # Sin 'labels' ni 'tick_labels' aquí
+       
         bp = ax.boxplot(data, patch_artist=True, widths=0.5)
 
-        # Etiquetas del eje X por separado (compatible con todas las versiones)
+        
         ax.set_xticklabels(variedades)
 
         for patch, variedad in zip(bp["boxes"], variedades):
